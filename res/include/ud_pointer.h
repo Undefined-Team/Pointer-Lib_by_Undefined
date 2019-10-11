@@ -2,6 +2,7 @@
 # define UD_POINTER_H
 
 // Lib
+#include <stdlib.h>
 
 // Macro
 
