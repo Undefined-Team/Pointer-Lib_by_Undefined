@@ -8,5 +8,5 @@ do
     lib="$pparam $lib"
 done
 fi
-gcc test.c $lib -lud_utils -lud_memory -lud_string -lud_pointer -o executable
+gcc test.c $lib -lud_utils -lud_memory -lud_pointer -o executable
 ./executable
