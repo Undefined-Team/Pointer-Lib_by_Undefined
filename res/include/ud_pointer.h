@@ -26,6 +26,6 @@
 // Prototypes
 size_t      ud_ptr_len(void **ptr);
 void        **ud_ptr_init(size_t len);
-void        **ud_ptr_cpy(void **src)
+void        **ud_ptr_cpy(void **src);
 
 #endif
