@@ -8,5 +8,6 @@
 // Structures
 
 // Prototypes
+void    ud_ptr_len(void **ptr);
 
 #endif
