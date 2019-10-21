@@ -14,6 +14,11 @@
 
 # ------------------------------------------------------------- #
 
+if [ "$(uname)" == "Darwin" ]; then
+    sedopt="-E"       
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    sedopt="-r"
+fi
 
 # 0 - Utils
 BLUE='\033[1;34m'
@@ -47,7 +52,7 @@ function csv_param_trim {
     local var="$*"
     var=${var//[$'\t\r\n"']}
     var=$(space_trim "$var")
-    var=$(echo "$var" | sed -r 's/[ ]+/_/g')
+    var=$(echo "$var" | sed $sedopt 's/[ ]+/_/g')
     echo -n "$var"
 }
 
@@ -191,9 +196,8 @@ function start_recursive {
     ! $dep_recursive && { info_print "\n (3) Check if need update"; }
     if ! $noupdate ; then
         gitret=$(git -C "$location" pull 2>&1) > /dev/null
-        info_print "debug $?"
         is_error $? && { error_print "Can't git pull" "\t"; }
-        if [[ "$gitret" != "Already up to date." ]] ; then
+        if [[ "$gitret" != "Already up to date." && "$gitret" != "Already up-to-date." ]] ; then
             $dep_recursive && { info_print "[ $target_name ] need to be updated" "\t"; }
             success_print "Files updated" "\t"
         fi
