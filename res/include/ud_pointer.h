@@ -25,6 +25,7 @@
 # define    ud_ptr_cpy(type, ptr)           (type *)ud_ptr_cpy_ctr((void **)ptr)
 # define    ud_ptr_len(ptr)                 ud_ptr_len_ctr((void **)ptr)
 # define    ud_ptr_init(type, len)          (type *)ud_ptr_init_ctr(len)
+# define    ud_ptr_free(ptr, depth)         ud_ptr_free_ctr((void**)ptr, depth)
 
 // Structures
 
