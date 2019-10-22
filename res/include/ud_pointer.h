@@ -24,7 +24,7 @@
 
 # define    ud_ptr_fp(ptr, function, ...)   ({ typeof(ptr) ptr_tmp = ptr; if (ptr_tmp) while (*ptr_tmp) function(*ptr_tmp++, __VA_ARGS__); })
 
-# define    ud_ptr_cpy(type, ptr)           (type *)ud_ptr_cpy_ctr((void **)ptr)
+# define    ud_ptr_cpy(ptr)                 (typeof(ptr))ud_ptr_cpy_ctr((void **)ptr)
 # define    ud_ptr_len(ptr)                 ud_ptr_len_ctr((void **)ptr)
 # define    ud_ptr_init(type, len)          (type *)ud_ptr_init_ctr(len)
 # define    ud_ptr_free(ptr, depth)         ud_ptr_free_ctr((void**)ptr, depth)
