@@ -7,7 +7,8 @@
 #include <ud_memory.h>
 
 // Macro
-# define    ud_ptr_set(type, ...) ({ type *ptr; type in_val[] = {__VA_ARGS__}; type *in_val_tmp = in_val; size_t len = sizeof(in_val) / sizeof(type); ptr = ud_ptr_init(type, len); type *p_ptr = ptr; for (ud_ut_count i = 0; i < len; ++i) *p_ptr++ = *in_val_tmp++; ptr; })
+# define    ud_ptr_set(...)       ud_ut_array(__VA_ARGS__, NULL)
+// # define    ud_ptr_set(type, ...)   ({ type *ptr; type in_val[] = {__VA_ARGS__}; type *in_val_tmp = in_val; size_t len = sizeof(in_val) / sizeof(type); ptr = ud_ptr_init(type, len); type *p_ptr = ptr; for (ud_ut_count i = 0; i < len; ++i) *p_ptr++ = *in_val_tmp++; ptr; })
 /*
 # define    ud_ptr_set(type, ...) \
     ({ \
