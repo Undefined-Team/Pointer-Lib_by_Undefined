@@ -19,15 +19,15 @@ int main(void)
     // char *test_fe[] = {"slt", "cava", NULL};
     char *test_fe[] = {"slt", "cava", NULL};
     // ud_ptr_foreach(test_fe);
-    ud_ptr_foreach(test_fe, test_fe, 
-    printf("str = %s\n", *test_fe);
-    printf("st = %s\n", *test_fe);
+    ud_ptr_foreach(test_fe, elem, 
+    printf("str = %s\n", *elem);
+    printf("st = %s\n", *elem);
     );
     // printf("str = %s\n", *key);
 
-    size_t *test_malloc = malloc(sizeof(test_malloc) * 27);
-    char *ptr_malloc = (char*)test_malloc;
-    printf("MALLOC SIZE = %zd\n", *(ptr_malloc - MALLOC_HEADER_SIZE));
+    // size_t *test_malloc = malloc(sizeof(test_malloc) * 27);
+    // char *ptr_malloc = (char*)test_malloc;
+    // printf("MALLOC SIZE = %zd\n", *(ptr_malloc - MALLOC_HEADER_SIZE));
 
     return (0);
 }
