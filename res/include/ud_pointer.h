@@ -7,9 +7,17 @@
 #include <ud_memory.h>
 
 // Macro
-# define    ud_ptr_set(...)       ud_ut_array(__VA_ARGS__, NULL)
+# define    ud_ptr_set(...)                 ud_ut_array(__VA_ARGS__, NULL)
 
 # define    ud_ptr_fp(ptr, function, ...)   ({ typeof(ptr) ptr_tmp = ptr; if (ptr_tmp) while (*ptr_tmp) function(*ptr_tmp++, __VA_ARGS__); })
+# define    ud_ptr_foreach(ptr, name, action) \
+    ({ \
+        if (ptr) \
+        { \
+            typeof(*ptr)* name = ptr; \
+            if (name) for (;*name;++name) ({ action }); \
+        } \
+    })
 
 # define    ud_ptr_cpy(ptr)                 (typeof(ptr))ud_ptr_cpy_ctr((void **)ptr)
 # define    ud_ptr_len(ptr)                 ud_ptr_len_ctr((void **)ptr)

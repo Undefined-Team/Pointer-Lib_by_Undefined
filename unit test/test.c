@@ -1,4 +1,6 @@
 #include <ud_pointer.h>
+#include <stdlib.h>
+#include <malloc.h>
 
 int main(void)
 {
@@ -13,4 +15,19 @@ int main(void)
     printf("%zd\n", ud_ptr_len(ptr2));
     for (char i = 0; i < 3; ++i) printf("ptr1 %s\n", ptr[i][0]);
     for (char i = 0; i < 3; ++i) printf("ptr2 %s\n", ptr2[i][0]);
+
+    // char *test_fe[] = {"slt", "cava", NULL};
+    char *test_fe[] = {"slt", "cava", NULL};
+    // ud_ptr_foreach(test_fe);
+    ud_ptr_foreach(test_fe, test_fe, 
+    printf("str = %s\n", *test_fe);
+    printf("st = %s\n", *test_fe);
+    );
+    // printf("str = %s\n", *key);
+
+    size_t *test_malloc = malloc(sizeof(test_malloc) * 27);
+    char *ptr_malloc = (char*)test_malloc;
+    printf("MALLOC SIZE = %zd\n", *(ptr_malloc - MALLOC_HEADER_SIZE));
+
+    return (0);
 }
