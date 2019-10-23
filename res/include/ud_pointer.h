@@ -9,7 +9,6 @@
 // Macro
 # define    ud_ptr_set(...)                 ud_ut_array(__VA_ARGS__, NULL)
 
-# define    ud_ptr_fp(ptr, function, ...)   ({ typeof(ptr) ptr_tmp = ptr; if (ptr_tmp) while (*ptr_tmp) function(*ptr_tmp++, __VA_ARGS__); })
 # define    ud_ptr_foreach(ptr, name, action) \
     ({ \
         if (ptr) \
