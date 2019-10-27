@@ -1,6 +1,5 @@
 #include <ud_pointer.h>
 #include <stdlib.h>
-#include <malloc.h>
 
 int main(void)
 {
@@ -28,6 +27,21 @@ int main(void)
     // size_t *test_malloc = malloc(sizeof(test_malloc) * 27);
     // char *ptr_malloc = (char*)test_malloc;
     // printf("MALLOC SIZE = %zd\n", *(ptr_malloc - MALLOC_HEADER_SIZE));
+
+    ud_ut_test(!ud_mem_cmp(ptr[0][0], "test", 4));
+    ud_ut_test(!ud_mem_cmp(ptr[0][1], "allo", 4));
+    ud_ut_test(!ud_mem_cmp(ptr[1][0], "test", 4));
+    ud_ut_test(!ud_mem_cmp(ptr[2][0], "test", 4));
+    ud_ut_test(!ud_mem_cmp(ptr2[0][0], "test", 4));
+    ud_ut_test(!ud_mem_cmp(ptr2[0][1], "allo", 4));
+    ud_ut_test(!ud_mem_cmp(ptr2[1][0], "test", 4));
+    ud_ut_test(!ud_mem_cmp(ptr2[2][0], "test", 4));
+    ud_ut_test(ptr != ptr2);
+    ud_ut_test(ud_ptr_len(ptr) == 3);
+    ud_ut_test(ud_ptr_len(ptr2) == 3);
+    ud_ptr_foreach(test_fe, elem,
+        ud_ut_test(!ud_mem_cmp(*elem, "cava", 4) || !ud_mem_cmp(*elem, "slt", 3));
+    );
 
     return (0);
 }
