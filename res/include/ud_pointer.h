@@ -7,7 +7,7 @@
 #include <ud_memory.h>
 
 // Macro
-# define    ud_ptr_set(...)                 ud_ut_array(__VA_ARGS__, NULL)
+# define    ud_ptr_set(ctype, ...)          ud_ut_array(ctype, __VA_ARGS__, NULL, (ctype)ud_ptr_end_flag())
 
 # define    ud_ptr_foreach(ptr, name, action) \
     ({ \
@@ -29,5 +29,6 @@
 size_t      ud_ptr_len_ctr(void **ptr);
 void        **ud_ptr_init_ctr(size_t len);
 void        **ud_ptr_cpy_ctr(void **src);
+void        *ud_ptr_end_flag(void);
 
 #endif
