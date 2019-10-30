@@ -28,7 +28,6 @@
 
 // Prototypes
 size_t      ud_ptr_len_ctr(void **ptr);
-size_t      ud_ptr_len_flag_ctr(void **ptr);
 void        **ud_ptr_init_ctr(size_t len);
 void        **ud_ptr_cpy_ctr(void **src);
 void        ud_ptr_free_ctr(void **ptr, size_t depth);
