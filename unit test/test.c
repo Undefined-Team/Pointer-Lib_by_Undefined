@@ -43,13 +43,11 @@ int main(void)
     ud_ut_test(!ud_mem_cmp(ptr[1][0], "test", 4));
     ud_ut_test(!ud_mem_cmp(ptr[2][0], "test", 4));
     ud_ut_test(ptr[3] == NULL);
-    ud_ut_test(ptr[4] == ud_ptr_end_flag());
     ud_ut_test(!ud_mem_cmp(ptr2[0][0], "test", 4));
     ud_ut_test(!ud_mem_cmp(ptr2[0][1], "allo", 4));
     ud_ut_test(!ud_mem_cmp(ptr2[1][0], "test", 4));
     ud_ut_test(!ud_mem_cmp(ptr2[2][0], "test", 4));
     ud_ut_test(ptr2[3] == NULL);
-    ud_ut_test(ptr2[4] == ud_ptr_end_flag());
     ud_ut_test(!ud_mem_cmp(ptr[0], ptr2[0], sizeof(void *)));
     ud_ut_test(!ud_mem_cmp(ptr[1], ptr2[1], sizeof(void *)));
     ud_ut_test(!ud_mem_cmp(ptr[2], ptr2[2], sizeof(void *)));
@@ -82,7 +80,6 @@ int main(void)
     ud_ut_test(((char **)c)[0] == NULL);
     ud_ut_test(!ud_mem_cmp(((char **)c)[1], "test", 4));
     ud_ut_test(((char **)c)[2] == NULL);
-    ud_ut_test(((char **)c)[3] == ud_ptr_end_flag());
     ud_ut_test(((char **)d)[0] == NULL);
     ud_ut_test(!ud_mem_cmp(((char **)d)[1], "test", 4));
     ud_ut_test(((char **)d)[2] == NULL);
