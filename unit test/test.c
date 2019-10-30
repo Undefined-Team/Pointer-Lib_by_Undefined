@@ -11,7 +11,6 @@ int main(void)
     char ***ptr = ud_ptr_set(char **, test, test2, test3);
     char ***ptr2 = ud_ptr_cpy(ptr);
 
-<<<<<<< HEAD
     printf("START RM TESTS\n");
     // if (ptr) 
     // { 
@@ -39,7 +38,6 @@ int main(void)
     ud_ut_free(ptr);
     // ud_ut_free(ptr2);    
     // char *test_fe[] = {"slt", "cava", NULL};
-=======
     ud_ut_test(!ud_mem_cmp(ptr[0][0], "test", 4));
     ud_ut_test(!ud_mem_cmp(ptr[0][1], "allo", 4));
     ud_ut_test(!ud_mem_cmp(ptr[1][0], "test", 4));
@@ -60,7 +58,6 @@ int main(void)
     ud_ut_test(ud_ptr_len(ptr) == 3);
     ud_ut_test(ud_ptr_len(ptr2) == 3);
 
->>>>>>> 79da82261b9f933ccb77580505b4bc67a8ad9060
     char *test_fe[] = {"slt", "cava", NULL};
 
     ud_ptr_foreach(test_fe, elem,
