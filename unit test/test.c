@@ -36,6 +36,7 @@ int main(void)
     ud_ptr_free(ptr2, 1);
     ud_ut_free(t);
     ud_ut_free(ptr);
+    printf("Start unit test\n");
     // ud_ut_free(ptr2);    
     // char *test_fe[] = {"slt", "cava", NULL};
     ud_ut_test(!ud_mem_cmp(ptr[0][0], "test", 4));
